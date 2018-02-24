@@ -25,9 +25,10 @@ class USER{
  public function register($email,$password,$first_name,$last_name,$city,$state,$postal_code){
   try{
    $password = password_hash($password, PASSWORD_BCRYPT);
+   $code = md5(uniqid(rand()));
 
-   $stmt = $this->conn->prepare("INSERT INTO Users(Email,Password,FirstName, LastName, City, State, PostalCode)
-                                                VALUES(:email, :user_pass, :first_name, :last_name, :city, :state, :postal_code)");
+   $stmt = $this->conn->prepare("INSERT INTO Users(Email,Password,FirstName, LastName, City, State, PostalCode, RecoveryToken)
+                                                VALUES(:email, :user_pass, :first_name, :last_name, :city, :state, :postal_code, :recovery_token)");
    $stmt->bindparam(":email",$email);
    $stmt->bindparam(":user_pass",$password);
    $stmt->bindparam(":first_name",$first_name);
@@ -35,6 +36,7 @@ class USER{
    $stmt->bindparam(":city",$city);
    $stmt->bindparam(":state",$state);
    $stmt->bindparam(":postal_code",$postal_code);
+   $stmt->bindparam(":recovery_token", $code);
    $stmt->execute();
    return $stmt;
   }
