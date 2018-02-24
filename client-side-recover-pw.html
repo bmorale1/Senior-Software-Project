@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
+    <script src="js/recover-password-request.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+</head>
+<div class="signin-form">
+
+    <div class="container">
+
+
+        <form class="form-signin" method="post" id="recover-form">
+
+            <h2 class="form-signin-heading">Recover Password</h2>
+            <hr />
+
+            <div id="response">
+                <!--response will be shown here-->
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email address" name="email" id="email" />
+                <span id="check-e"></span>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default" name="btn-recover" id="btn-recover">
+      <span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In
+   </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
