@@ -119,3 +119,8 @@ footer{
 .sticky + .content {
   padding-top: 60px;
 }
+
+
+#user_email, #password, #first_name, #last_name, #city, #state, #postal_code {
+    width: 25%;
+}

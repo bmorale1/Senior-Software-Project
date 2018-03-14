@@ -1,0 +1,126 @@
+@import "compass/css3";
+@import "compass/css3/transform";
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+header{
+	background-color: #33cc33;
+	text-align: center;
+	font-style:bold;
+	font-style: italic;
+	display: block;
+	font-weight: normal;
+  	color: #fff;
+  	font-size: 8em;
+  	text-transform: uppercase;
+  	font-family: 'Bangers', cursive;
+  	text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
+  	@include skew(0, -6.7deg, false);
+  	@include transition-property(font-size);
+ 	@include transition-duration(0.5s);
+}
+nav{
+	text-align: center;
+	font-size: 1.5em;
+	padding-top: 10px;
+	font-family: 'Bangers', cursive;
+  	@include skew(0, -6.7deg, false);
+  	@include transition-property(font-size);
+ 	@include transition-duration(0.5s);
+}
+p{
+	text-align: center;
+	font-size: 1.5em;
+	display: block;
+
+}
+main{
+	background-color: #97e797;
+	background-size: auto;
+	font-family: 'Bangers', cursive;
+  	@include skew(0, -6.7deg, false);
+  	@include transition-property(font-size);
+ 	@include transition-duration(0.5s);
+ 	padding-top: 10px;
+
+}
+footer{
+	font-size: .60em;
+	font-size: italic;
+	text-align: center;
+	padding-bottom: 10px;
+	border-top: 2px solid #221811; 
+}
+* {box-sizing: border-box;}
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+#navbar a:hover{
+	background-color: #97e797;
+	color:black;
+}
+#navbar a.active{
+	background-color:black; 
+	color:#97e797;
+}
+#navbar .SearchBox{
+	float:right;
+}
+#navbar input[type=text]{
+  padding: 7px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  font-family: 'Bangers', cursive;
+  @include skew(0, -6.7deg, false);
+  @include transition-property(font-size);
+ @include transition-duration(0.5s);
+}
+#navbar .SearchBox button{
+	float:right;
+	padding:6px 10px;
+	margin-top:8px;
+	margin-right:16px;
+	font-size: 17px;
+	cursor: pointer;
+	background:grey;
+	border:none;
+}
+#navbar .user button{
+	float: right;
+	margin-right: 16px;
+	padding: 8px 10px;
+	margin-top: 8px;
+	cursor: pointer;
+	border: none;
+	background:grey;
+}
+#navbar .SearchBox button:hover{
+	background: lightgrey;
+}
+#navbar .user button:hover{
+	background:lightgrey;
+}
+.content {
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+
+
+#user_email, #password, #first_name, #last_name, #city, #state, #postal_code {
+    width: 25%;
+}
