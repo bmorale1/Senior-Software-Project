@@ -1,6 +1,6 @@
 <?php
 
-
+header('Content-type: application/json');
 
 $api_key = "MTA0NTE3MTN8MTUxNzUyMDU4OC41Mw";
 
