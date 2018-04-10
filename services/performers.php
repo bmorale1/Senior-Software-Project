@@ -12,17 +12,17 @@ $perf_sname = $_REQUEST['short_name'];
 
 $perf_slug = $_REQUEST['slug'];
 
-$perf_tax_name = $_REQUEST['taxonomies.name'];
+$perf_tax_name = $_REQUEST['taxonomies_name'];
 
-$perf_tax_id = $_REQUEST['taxonomies.id'];
+$perf_tax_id = $_REQUEST['taxonomies_id'];
 
-$perf_tax_pid = $_REQUEST['taxonomies.parent_id'];
+$perf_tax_pid = $_REQUEST['taxonomies_parent_id'];
 
 $perf_up_coming_events = $_REQUEST['has_upcoming_events'];
 
 $perf_genres = $_REQUEST['genres[primary]'];
 
-$perf_genres_slug = $_REQUEST['genres.slug'];
+$perf_genres_slug = $_REQUEST['genres_slug'];
 
 
 $url = "https://api.seatgeek.com/2/performers?client_id=". $api_key;
