@@ -157,6 +157,13 @@ public function getUserProfileData($token){
  public function logout(){
   session_destroy();
   $_SESSION['userSession'] = false;
+  
+  $token = md5(uniqid(rand()));
+
+  $stmt = $this->conn->prepare("UPDATE Users 
+    SET SessionToken=NULL WHERE Email=:email");
+  $stmt->bindparam(":email", $email);
+  $stmt->execute();
  }
 
 
