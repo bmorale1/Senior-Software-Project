@@ -24,11 +24,19 @@ class USER{
 
  public function register($email,$password,$first_name,$last_name,$city,$state,$postal_code){
   try{
+
+    $stmt = $this->conn->prepare("SELECT * FROM Users WHERE Email=:email");
+    $stmt->execute(array(":email"=>$email));
+    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+ 
+  if($stmt->rowCount() == 1){
+    return false;
+  }else{
    $password = password_hash($password, PASSWORD_BCRYPT);
    $code = md5(uniqid(rand()));
 
-   $stmt = $this->conn->prepare("INSERT INTO Users(Email,Password,FirstName, LastName, City, State, PostalCode, RecoveryToken)
-                                                VALUES(:email, :user_pass, :first_name, :last_name, :city, :state, :postal_code, :recovery_token)");
+   $stmt = $this->conn->prepare("INSERT INTO Users(Email,Password,FirstName, LastName, City, State, PostalCode, RecoveryToken, SessionToken)
+                                                VALUES(:email, :user_pass, :first_name, :last_name, :city, :state, :postal_code, :recovery_token, NULL)");
    $stmt->bindparam(":email",$email);
    $stmt->bindparam(":user_pass",$password);
    $stmt->bindparam(":first_name",$first_name);
@@ -40,10 +48,76 @@ class USER{
    $stmt->execute();
    return $stmt;
   }
+  }
   catch(PDOException $ex){
    echo $ex->getMessage();
   }
  }
+
+
+public function validateToken($token){
+  try{
+    $stmt = $this->conn->prepare("SELECT * FROM Users WHERE SessionToken=:session_token");
+    $stmt->execute(array(":session_token"=>$token));
+    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+ 
+    if($stmt->rowCount() == 1){
+       return true;
+    }else{
+      return false;
+    }
+   }catch(PDOException $ex){
+    echo $ex->getMessage();
+   }
+}
+
+
+public function getUserProfileData($token){
+
+  try{
+
+    // Get User Data
+    $stmt = $this->conn->prepare("SELECT Email, FirstName, LastName, City, State, PostalCode FROM Users WHERE SessionToken=:session_token");
+    $stmt->execute(array(":session_token"=>$token));
+
+    
+    $data = array();
+
+    while ($userRow=$stmt->fetch(PDO::FETCH_ASSOC)){
+
+      $data['profile'] = $userRow;
+
+    }
+
+    // Get ticket data
+    $stmt = $this->conn->prepare("SELECT UserID FROM Users WHERE SessionToken=:session_token");
+    $stmt->execute(array(":session_token"=>$token));
+    
+    $event_data = array();
+    while ($userRow=$stmt->fetch(PDO::FETCH_ASSOC)){
+      $ticket_stmt = $this->conn->prepare("SELECT EventID FROM Tickets WHERE UserID=:user_id");
+      $ticket_stmt->execute(array(":user_id"=>$userRow['UserID']));
+
+      while($ticketRow=$ticket_stmt->fetch(PDO::FETCH_ASSOC)){
+        $event_data[] = $ticketRow['EventID'];
+      }
+
+    }
+
+    $event_list = implode(",", $event_data);
+
+    $data['events'] = $event_list;
+
+    if($stmt->rowCount() == 1){
+       return $data;
+    }else{
+      return false;
+    }
+   }catch(PDOException $ex){
+    echo $ex->getMessage();
+   }
+}
+
 
  public function login($email,$password){
   try{
@@ -53,8 +127,14 @@ class USER{
 
    if($stmt->rowCount() == 1){
      if(password_verify($password, $userRow['Password'])){
-      $_SESSION['userSession'] = $userRow['UserID'];
-      return true;
+      $token = md5(uniqid(rand()));
+
+      $stmt = $this->conn->prepare("UPDATE Users 
+      SET SessionToken=:session_token WHERE Email=:email");
+      $stmt->bindparam(":email", $email);
+      $stmt->bindparam(":session_token", $token);
+      $stmt->execute();
+      return $token;
      }
    }
   }

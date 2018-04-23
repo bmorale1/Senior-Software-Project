@@ -38,7 +38,7 @@ $('document').ready(function() {
                 response = $.parseJSON(response);
 
                 if (response.status == "success") {
-
+                    document.cookie = "SessionToken=" + response.token;
                     $("#btn-login").html('Signing In...');
                     setTimeout(' window.location.href = "logged-in.html"; ', 4000);
 

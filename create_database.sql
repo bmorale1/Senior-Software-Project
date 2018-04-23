@@ -49,7 +49,8 @@ CREATE TABLE `Users` (
   `City` varchar(50) NOT NULL,
   `State` varchar(10) NOT NULL,
   `PostalCode` int(15) NOT NULL,
-  `RecoveryToken` varchar(200) NOT NULL
+  `RecoveryToken` varchar(200) NOT NULL,
+  `SessionToken` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

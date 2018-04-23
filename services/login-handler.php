@@ -13,9 +13,12 @@
 
   try
   {
-   if($user->login($user_email, $user_password)){
+
+   $session_token = $user->login($user_email, $user_password);
+   if($session_token != NULL){
 
     $res['status'] = 'success';
+    $res['token'] = $session_token;
 
 
     echo json_encode($res); // log in

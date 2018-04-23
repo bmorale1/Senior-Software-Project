@@ -36,15 +36,13 @@
     $res['reason'] = '';
 
     echo json_encode($res);
-  }
-  else
-  {
+  }else{
     $res['status'] = 'fail';
     $res['reason'] = 'query';
   
     echo json_encode($res);
   }
  }
- }
+}
 
 ?>
