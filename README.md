@@ -1,2 +1,2 @@
 # Senior-Software-Project
-the software developed for this class
+The software developed for this class
