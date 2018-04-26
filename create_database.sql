@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2018 at 05:09 PM
+-- Generation Time: Apr 26, 2018 at 05:30 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.25-0ubuntu0.16.04.1
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `TicketGeek`
 --
-CREATE DATABASE IF NOT EXISTS `TicketGeek` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `TicketGeek`;
 
 -- --------------------------------------------------------
 
@@ -50,7 +48,7 @@ CREATE TABLE `Users` (
   `State` varchar(10) NOT NULL,
   `PostalCode` int(15) NOT NULL,
   `RecoveryToken` varchar(200) NOT NULL,
-  `SessionToken` varchar(200)
+  `SessionToken` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -61,8 +59,7 @@ CREATE TABLE `Users` (
 -- Indexes for table `Tickets`
 --
 ALTER TABLE `Tickets`
-  ADD PRIMARY KEY (`TicketID`),
-  ADD KEY `UserID` (`UserID`);
+  ADD PRIMARY KEY (`TicketID`);
 
 --
 -- Indexes for table `Users`
@@ -84,12 +81,6 @@ ALTER TABLE `Tickets`
 --
 ALTER TABLE `Users`
   MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `Tickets`
---
-ALTER TABLE `Tickets`
-  ADD CONSTRAINT `UserID` FOREIGN KEY (`UserID`) REFERENCES `Users` (`UserID`);
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

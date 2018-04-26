@@ -118,6 +118,35 @@ public function getUserProfileData($token){
    }
 }
 
+public function setUserBookmark($token, $event_id){
+
+  try{
+
+    // Get ticket data
+    $stmt = $this->conn->prepare("SELECT UserID FROM Users WHERE SessionToken=:session_token");
+    $stmt->execute(array(":session_token"=>$token));
+    
+    $event_data = array();
+    $success = false;
+    while ($userRow=$stmt->fetch(PDO::FETCH_ASSOC)){
+      $ticket_stmt = $this->conn->prepare("INSERT INTO Tickets (EventID,UserID) Values  (:event_id,:user_id)");
+      $ticket_stmt->bindparam(":user_id",$userRow['UserID']);
+      $ticket_stmt->bindparam(":event_id", $event_id);
+      $ticket_stmt->execute();
+      $success = true;
+    }
+
+    if($success){
+       return true;
+    }else{
+      return false;
+    }
+   }catch(PDOException $ex){
+    echo $ex->getMessage();
+   }
+}
+
+
 
  public function login($email,$password){
   try{
