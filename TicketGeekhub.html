@@ -1,14 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang ="en">
-<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
 	<script type="text/javascript">
 		window.FontAwesomeConfig = {autoReplaceSvg: false}
 	</script>
 	<link rel="Stylesheet" type = "text/css" href="ticketGeek.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src ="fontawesome.js"></script>
-	<script src ="fa-solid.js" ></script>
+	<script src ="/js/fontawesome.js"></script>
+	<script src ="/js/fa-solid.js" ></script>
+	
 	<title>Ticket Geek</title>
 	<meta charset = "utf-8">
 </head>
@@ -36,7 +37,8 @@
             <a href="client_login.html">Login</a>
         </nav>
 	</div>
-	<main>
+	<main id="main">	
+
 	<div >
 		<h2> About Us</h2>
 		<p>We are a start-up company created by four college students with a passion for computers (and meeting project deadlines). Two of us work on the website, while the other two work on the back end to get you your events in current time!</p>
@@ -46,6 +48,31 @@
 
     </div>
 
+	<form action="/services/events.php" method="GET" id="userForm" class="ajax" >
+		<fieldset>
+			<legend>Look for your favorite event!</legend>
+			<input type="text" id="q" name="q" placeholder="enter keywords here"><br>
+			<input type="submit" value="Submit" >
+		</fieldset>
+	</form>
+
+	<br>
+	<br>
+
+	<form action="">
+		<fieldset>
+			<legend>Detailed search for your favorite artist, events and venues</legend>
+			Event name:<br>
+			<input type="text" name="eventname" value="Event name.."><br>
+			Performer name:<br>
+			<input type="text" name="perfname" value="performer name..."><br>
+			Venue name:<br>
+			<input type="text" name="venuename" value="Venue name.."><br>
+			<input id="submit" type="submit" value="Submit">
+		</fieldset>
+	</form>
+
+	<div id='result'></div>
 	</main>
 	<footer>
  			Copyright &copy; 2018 TixGeek<br>
@@ -68,7 +95,7 @@
             });
 
         });
-	window.onscroll = function() {stick()};
+	//window.onscroll = function() {stick()};
 
 	var navbar = document.getElementById("navbar");
 	var sticky = navbar.offsetTop;
@@ -82,6 +109,7 @@
   		}
 	}
 </script>
+	<script src="js/eventscript.js"></script>
 
 </body>
 
