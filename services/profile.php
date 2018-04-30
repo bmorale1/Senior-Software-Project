@@ -5,6 +5,8 @@ require_once 'class.user.php';
 
 $user = new USER();
 
+header('Content-type: application/json');
+
 $token = $_REQUEST['token'];
 
 if(!$user->validateToken($token)){
