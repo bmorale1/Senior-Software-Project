@@ -36,97 +36,97 @@ $('document').ready(function() {
                     response.profile.Email
                 );
                 $("#name").append(
-                    response.profile.FirstName + " " + response.profile.LastName 
+                    response.profile.FirstName + " " + response.profile.LastName
                 );
                 $("#location").append(
-                    response.profile.City + ", " + response.profile.State + " " + response.profile.PostalCode  
+                    response.profile.City + ", " + response.profile.State + " " + response.profile.PostalCode
                 );
 
                 displayEvents(response.events);
-                
-            } else if (response == "") {
-                console.log(response);
+
+            } else {
+                console.log("Response is:" + response);
                 $('#main').empty();
                 $('#main').append(
                     "Unexpected error try again!"
                 );
             }
 
-        
+
         }
     });
 });
 
-function displayEvents(data){
-    if(data != ""){
+function displayEvents(data) {
+    if (data != "") {
 
         $.ajax({
             type: 'GET',
             url: '/services/events.php',
-            data: "id="+data,
+            data: "id=" + data,
             async: true,
             dataType: 'json'
 
-        }).done(function(response){
+        }).done(function(response) {
             console.log(response);
 
-           // initMap();
+            // initMap();
             var marker;
             var infowindow = new google.maps.InfoWindow();
 
             initMap();
 
-            $(response.events).each(function(index, value){
-                
+            $(response.events).each(function(index, value) {
+
                 console.log(value.id);
 
                 $('#eventsMenu').append(
-                    "<a href='javascript:void(0);' onclick='eventdetail(" + value.id +")'>" + value.short_title + "</a>"
-                 );
+                    "<a href='javascript:void(0);' onclick='eventdetail(" + value.id + ")'>" + value.short_title + "</a>"
+                );
 
-                 
 
-                 var myLatLng = {lat: value.venue.location.lat, lng: value.venue.location.lon};
 
-                 marker = new google.maps.Marker({
+                var myLatLng = { lat: value.venue.location.lat, lng: value.venue.location.lon };
+
+                marker = new google.maps.Marker({
                     position: new google.maps.LatLng(value.venue.location.lat, value.venue.location.lon),
                     map: map,
-                  });
-                
-                  google.maps.event.addListener(marker, 'click', (function(marker) {
-                    return function() {
-                      infowindow.setContent(value.title);
-                      infowindow.open(map, marker);
-                    }
-                  })(marker));
-        
+                });
 
-                 map.panTo(marker.getPosition());
+                google.maps.event.addListener(marker, 'click', (function(marker) {
+                    return function() {
+                        infowindow.setContent(value.title);
+                        infowindow.open(map, marker);
+                    }
+                })(marker));
+
+
+                map.panTo(marker.getPosition());
 
             });
 
-            
+
 
         });
-        
-        
+
+
 
     }
 }
 
 var map;
 
-function initMap(){
+function initMap() {
     var options = {
         zoom: 15,
-        center: {lat: -25.363, lng: 131.044}
+        center: { lat: -25.363, lng: 131.044 }
     }
 
     // New map
     map = new google.maps.Map(document.getElementById('map'), options);
 }
 
-function eventdetail(eventid){
+function eventdetail(eventid) {
     var queryString = "?id=" + eventid;
     window.location.href = "../eventPage.html" + queryString;
 }

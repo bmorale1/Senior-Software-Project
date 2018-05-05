@@ -1,63 +1,67 @@
 ﻿<!DOCTYPE html>
-<html lang ="en">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
-	<script type="text/javascript">
-		window.FontAwesomeConfig = {autoReplaceSvg: false}
-	</script>
-	<link rel="Stylesheet" type = "text/css" href="ticketGeek.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src ="/js/fontawesome.js"></script>
-	<script src ="/js/fa-solid.js" ></script>
-	
-	<title>Ticket Geek</title>
-	<meta charset = "utf-8">
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
+<script type="text/javascript">
+    window.FontAwesomeConfig = {
+        autoReplaceSvg: false
+    }
+</script>
+<link rel="Stylesheet" type="text/css" href="ticketGeek.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="/js/fontawesome.js"></script>
+<script src="/js/fa-solid.js"></script>
+
+<title>Ticket Geek</title>
+<meta charset="utf-8">
 </head>
+
 <body>
-	<div>
-		<header >
-			Ticket Geek
-		</header>
-	</div>
-	<div id = "navbar">
+    <div>
+        <header>
+            Ticket Geek
+        </header>
+    </div>
+    <div id="navbar">
         <nav>
-			<a href="TicketGeekhub.html">Home</a>
+            <a href="TicketGeekhub.html">Home</a>
             <!-- <a href="eventPage.html">Events</a> -->
             <!--<a href="Cart.html">CheckOut</a>-->
-            
+
             <!-- <div class="SearchBox">
                 <input type="text" placeholder="Search Here" name="seach">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div> -->
 
-			<a href="client_login.html">Login</a>
-			
+            <a href="client_login.html">Login</a>
+
             <a class="fa fa-user" href="user.html"></a>
+            <a href="logout.html">Logout</a>
         </nav>
-	</div>
-	<main id="main">	
-
-	<div >
-		<h2> About Us</h2>
-		<p>We are a start-up company created by four college students with a passion for computers (and meeting project deadlines). Two of us work on the website, while the other two work on the back end to get you your events in current time!</p>
-	    <br />
-        <br />
-        <p style="padding-bottom: 5%;"><a href="client_register.html">Sign up to TicketGeek!</a></p>
-
     </div>
+    <main id="main">
 
-	<form action="/services/events.php" method="GET" id="userForm" class="ajax" >
-		<fieldset>
-			<legend>Look for your favorite event!</legend>
-			<input type="text" id="q" name="q" placeholder="enter keywords here"><br>
-			<input type="submit" value="Submit" >
-		</fieldset>
-	</form>
+        <div>
+            <h2> About Us</h2>
+            <p>We are a start-up company created by four college students with a passion for computers (and meeting project deadlines). Two of us work on the website, while the other two work on the back end to get you your events in current time!</p>
+            <br />
+            <br />
+            <p style="padding-bottom: 5%;"><a href="client_register.html">Sign up to TicketGeek!</a></p>
 
-	<br>
-	<br>
+        </div>
 
-	<!-- <form action="">
+        <form action="/services/events.php" method="GET" id="userForm" class="ajax">
+            <fieldset>
+                <legend>Look for your favorite event!</legend>
+                <input type="text" id="q" name="q" placeholder="enter keywords here"><br>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+
+        <br>
+        <br>
+
+        <!-- <form action="">
 		<fieldset>
 			<legend>Detailed search for your favorite artist, events and venues</legend>
 			Event name:<br>
@@ -70,21 +74,21 @@
 		</fieldset>
 	</form> -->
 
-	<div id='result'></div>
-	</main>
-	<footer>
- 			Copyright &copy; 2018 TixGeek<br>
-			<a href="mailto:Morales_brandon1@columbusstate.edu"> Email: Morales_ Brandon1@columbusstate.edu</a>
-			<div>	
-				<script>
-					document.write("Page was last modified on: "+ document.lastModified);
-				</script>
-			</div>
-	</footer>
+        <div id='result'></div>
+    </main>
+    <footer>
+        Copyright &copy; 2018 TixGeek<br>
+        <a href="mailto:Morales_brandon1@columbusstate.edu"> Email: Morales_ Brandon1@columbusstate.edu</a>
+        <div>
+            <script>
+                document.write("Page was last modified on: " + document.lastModified);
+            </script>
+        </div>
+    </footer>
 
 
-	<script>
-	$(function() {
+    <script>
+        $(function() {
 
             causeRepaintsOn = $("h1, h2, h3, p");
 
@@ -93,21 +97,20 @@
             });
 
         });
-	//window.onscroll = function() {stick()};
+        //window.onscroll = function() {stick()};
 
-	var navbar = document.getElementById("navbar");
-	var sticky = navbar.offsetTop;
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
 
-	function stick() {
-  	if (window.pageYOffset >= sticky) {
-    	navbar.classList.add("sticky")
-  	} 
-  	else {
-    	navbar.classList.remove("sticky");
-  		}
-	}
-</script>
-	<script src="js/eventscript.js"></script>
+        function stick() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+    <script src="js/eventscript.js"></script>
 
 </body>
 

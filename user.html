@@ -1,67 +1,71 @@
 ﻿<!DOCTYPE html>
-<html lang ="en">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
-	<script type="text/javascript">
-		window.FontAwesomeConfig = {autoReplaceSvg: false}
-	</script>
-	<link rel="Stylesheet" type = "text/css" href="ticketGeek.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src ="/js/fontawesome.js"></script>
-	<script src ="/js/fa-solid.js" ></script>
-	
-	<title>Ticket Geek</title>
-	<meta charset = "utf-8">
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
+<script type="text/javascript">
+    window.FontAwesomeConfig = {
+        autoReplaceSvg: false
+    }
+</script>
+<link rel="Stylesheet" type="text/css" href="ticketGeek.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="/js/fontawesome.js"></script>
+<script src="/js/fa-solid.js"></script>
+
+<title>Ticket Geek</title>
+<meta charset="utf-8">
 </head>
+
 <body>
-	<div>
-		<header >
-			Ticket Geek
-		</header>
-	</div>
-	<div id = "navbar">
+    <div>
+        <header>
+            Ticket Geek
+        </header>
+    </div>
+    <div id="navbar">
         <nav>
-			<a href="TicketGeekhub.html">Home</a>
+            <a href="TicketGeekhub.html">Home</a>
             <!-- <a href="eventPage.html">Events</a> -->
             <!--<a href="Cart.html">CheckOut</a>-->
-            
+
             <!-- <div class="SearchBox">
                 <input type="text" placeholder="Search Here" name="seach">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div> -->
 
-			<a href="client_login.html">Login</a>
-			
+            <a href="client_login.html">Login</a>
+
             <a class="fa fa-user" href="user.html"></a>
-           
+            <a href="logout.html">Logout</a>
+
         </nav>
-	</div>
-	<main id="main">	
+    </div>
+    <main id="main">
 
-		<div id='userDetails'>
-			<h1>User Information</h1>
-			<h2 id='email'>Email: </h2>
-			<h2 id='name'>Full Name: </h2>
-			<h2 id='location'>Location: </h2>
-		</div>
+        <div id='userDetails'>
+            <h1>User Information</h1>
+            <h2 id='email'>Email: </h2>
+            <h2 id='name'>Full Name: </h2>
+            <h2 id='location'>Location: </h2>
+        </div>
 
-		<h1>Check out your saved events!</h1>
-		<div id='eventsMenu'></div>
-		<div id="map"></div>
-	</main>
-	<footer>
- 			Copyright &copy; 2018 TixGeek<br>
-			<a href="mailto:Morales_brandon1@columbusstate.edu"> Email: Morales_ Brandon1@columbusstate.edu</a>
-			<div>	
-				<script>
-					document.write("Page was last modified on: "+ document.lastModified);
-				</script>
-			</div>
-	</footer>
+        <h1>Check out your saved events!</h1>
+        <div id='eventsMenu'></div>
+        <div id="map"></div>
+    </main>
+    <footer>
+        Copyright &copy; 2018 TixGeek<br>
+        <a href="mailto:Morales_brandon1@columbusstate.edu"> Email: Morales_ Brandon1@columbusstate.edu</a>
+        <div>
+            <script>
+                document.write("Page was last modified on: " + document.lastModified);
+            </script>
+        </div>
+    </footer>
 
 
-	<script>
-	$(function() {
+    <script>
+        $(function() {
 
             causeRepaintsOn = $("h1, h2, h3, p");
 
@@ -70,24 +74,23 @@
             });
 
         });
-	//window.onscroll = function() {stick()};
+        //window.onscroll = function() {stick()};
 
-	var navbar = document.getElementById("navbar");
-	var sticky = navbar.offsetTop;
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
 
-	function stick() {
-  	if (window.pageYOffset >= sticky) {
-    	navbar.classList.add("sticky")
-  	} 
-  	else {
-    	navbar.classList.remove("sticky");
-  		}
-	}
-</script>
-	<script src="js/userDetails.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj5uGU9YyIobVfbziTgFXGsKvgeYi16Ig&libraries=places">
-	</script>
-	<script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+        function stick() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+    <script src="js/userDetails.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj5uGU9YyIobVfbziTgFXGsKvgeYi16Ig&libraries=places">
+    </script>
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 
 </body>
 
