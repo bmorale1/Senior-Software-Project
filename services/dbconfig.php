@@ -5,7 +5,7 @@ class Database{
     private $host = "localhost"; //site url
     private $db_name = "TicketGeek"; //db_name
     private $username = "root"; //sql user
-    private $password = "toor"; //sql pass
+    private $password = ""; //sql pass
     public $conn;
 
   public function dbConnection(){

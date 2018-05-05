@@ -1,68 +1,115 @@
 ﻿<!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
 	<script type="text/javascript">
 		window.FontAwesomeConfig = {autoReplaceSvg: false}
 	</script>
 	<link rel="Stylesheet" type = "text/css" href="ticketGeek.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src ="fontawesome.js"></script>
-	<script src ="fa-solid.js" ></script>
+	<script src ="/js/fontawesome.js"></script>
+	<script src ="/js/fa-solid.js" ></script>
+	
 	<title>Ticket Geek</title>
 	<meta charset = "utf-8">
+  
+
 </head>
 <body>
-	<div>
-		<header style = "color:White;">
-			Ticket Geek
-		</header>
-	</div>
-	<div id = "navbar">
+    <div>
+        <header>
+            Ticket Geek
+        </header>
+    </div>
+    <div id="navbar">
         <nav>
             <a href="TicketGeekhub.html">Home</a>
-            <a href="eventPage.html">Events</a>
-            <div class="user">
-                <form action="user.html">
-                    <button type="submit"><i class="fa fa-user"></i></button>
-            </div>
-            <div class="SearchBox">
+            <!-- <a href="eventPage.html">Events</a> -->
+            <!--<a href="Cart.html">CheckOut</a>-->
+            
+            <!-- <div class="SearchBox">
                 <input type="text" placeholder="Search Here" name="seach">
                 <button type="submit"><i class="fa fa-search"></i></button>
-            </div>
-            <a href="client_login.html">Login</a>
+            </div> -->
+
+			<a href="client_login.html">Login</a>
+			
+            <a class="fa fa-user" href="user.html"></a>
         </nav>
-	</div>
-	<main>
-		<h1> Going on now...</h1>
-	</main>
-	<footer>
- 			Copyright &copy; 2018 TixGeek<br>
-			<a href="mailto:Morales_brandon1@columbusstate.edu"> Email: Morales_ Brandon1@columbusstate.edu</a>
-			<div>	
-				<script>
-					document.write("Page was last modified on: "+ document.lastModified);
-				</script>
-			</div>
-	</footer>
+    </div>
+    <main>
+        <div>
+            <div class="split left ">
+                
+                
+            </div>
+
+            <div class="split right ">
+				<h2>Save your Event!</h2>
+				<button  class="" name="" id="" onclick="saveEvent()">Save</button>
+				<div id="map"></div>
+				
+            </div>
+        </div>
+       
+        <!-- <script>
+            function initMap() {
+                // Map options
+                var options = {
+                    zoom: 15,
+                    center: { lat: 40.77167, lng: -73.99277 }
+                }
+
+                // New map
+                var map = new google.maps.Map(document.getElementById('map'), options);
+                var infowindow = new google.maps.InfoWindow();
+                var geocoder = new google.maps.Geocoder;
+                var service = new google.maps.places.PlacesService(map);
+                var marker = new google.maps.Marker({
+                    position: options.center,
+                    map: map
+                });
+
+                latitude = marker.getPosition().lat();
+                longitude = marker.getPosition().lng();
+                var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
+                
+                geocoder.geocode({ 'location': latlng }, function (results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        if (results[1]) {
+                            console.log(results[1].place_id);
+                            service.getDetails({
+                                placeId: results[1].place_id
+                            }, function (place, status) {
+                                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                    google.maps.event.addListener(marker, 'click', function () {
+                                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                                            'Place ID: ' + place.place_id + '<br>' +
+                                            place.formatted_address + '</div>');
+                                        infowindow.open(map, this);
+                                    });
+                                }
+                            });
+                        } else {
+                            window.alert('No results found');
+                        }
+                    } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                    }
+                });
+
+                
+
+            }
+        </script> -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj5uGU9YyIobVfbziTgFXGsKvgeYi16Ig&callback=initMap&libraries=places">
+        </script>
 
 
-	<script>
-	window.onscroll = function() {stick()};
-
-	var navbar = document.getElementById("navbar");
-	var sticky = navbar.offsetTop;
-
-	function stick() {
-  	if (window.pageYOffset >= sticky) {
-    	navbar.classList.add("sticky")
-  	} 
-  	else {
-    	navbar.classList.remove("sticky");
-  		}
-	}
-</script>
-
+    </main>
+	<script src="js/eventdetail.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 </body>
 
 </html>

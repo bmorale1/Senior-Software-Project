@@ -40,7 +40,7 @@ $('document').ready(function() {
                 if (response.status == "success") {
                     document.cookie = "SessionToken=" + response.token;
                     $("#btn-login").html('Signing In...');
-                    setTimeout(' window.location.href = "logged-in.html"; ', 4000);
+                    setTimeout(' window.location.href = "../user.html"; ', 4000);
 
                 } else {
 

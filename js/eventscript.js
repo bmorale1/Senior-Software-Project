@@ -18,18 +18,11 @@ $('document').ready(function() {
     function submitForm() {
         //Event.preventDefault;
         globalsearch = $("#userForm").serialize();
+        var date = new Date();
+        var todaysdate = formatCurrentDate(date);
+        globalsearch += "&datetime_utc.gt=" + todaysdate;         
         console.log(globalsearch);
 
-        /* function formatAMPM(date) {
-            var hours = date.getHours();
-            var minutes = date.getMinutes();
-            var ampm = hours >= 12 ? 'pm' : 'am';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
-            minutes = minutes < 10 ? '0'+minutes : minutes;
-            var strTime = hours + ':' + minutes + ' ' + ampm;
-            return strTime;
-          } */
        
         $.ajax({
             type: 'GET',
@@ -66,19 +59,19 @@ $('document').ready(function() {
                 
                 if(value.time_tbd){
                     $("#result").append(
-                        "<h4>Time: TBA</h4><h4>Estimated date:  "+date.getDate()+"/"+date.getMonth()+"/"+
+                        "<h4>Time: TBA</h4><h4>Estimated date:  "+date.getDate()+"/"+(date.getMonth()+1)+"/"+
                         date.getFullYear()+"</h4>"
                       ); 
                 }else{
                     $("#result").append(
                         "<h4>Time: "+ formatAMPM(date)
-                        +"</h4><h4>Date:  "+date.getDate()+"/"+date.getMonth()+"/"+
+                        +"</h4><h4>Date:  "+date.getDate()+"/"+(date.getMonth()+1)+"/"+
                         date.getFullYear()+"</h4>"
                       );
                 }
                 $("#result").append(
                     "<h4>Type: "+value.type+"</h4>"+"<button type='button' value= "+value.id+
-                    " onclick='eventinfo()'>More Information</button> <hr>"
+                    " onclick='eventdetail(this)'>More Information</button> <hr>"
                   );
                 /* var taxs = "";
                 if(value.taxonomies != null){
@@ -129,7 +122,20 @@ function formatAMPM(date) {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
-  }
+}
+
+function formatCurrentDate(date){
+    var yyyy = date.getFullYear().toString();
+    var mm = (date.getMonth()+1).toString();
+    var dd  = date.getDate().toString();
+
+    var mmChars = mm.split('');
+    var ddChars = dd.split('');
+
+    return yyyy + '-' + (mmChars[1]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]);
+ }
+
+
 
 function eventinfo(param1) {
         
@@ -172,19 +178,19 @@ function eventinfo(param1) {
                 
                 if(value.time_tbd){
                     $("#result").append(
-                        "<h4>Time: TBA</h4><h4>Estimated date:  "+date.getDate()+"/"+date.getMonth()+"/"+
+                        "<h4>Time: TBA</h4><h4>Estimated date:  "+date.getDate()+"/"+(date.getMonth()+1)+"/"+
                         date.getFullYear()+"</h4>"
                       ); 
                 }else{
                     $("#result").append(
                         "<h4>Time: "+formatAMPM(date)
-                        +"</h4><h4>Date:  "+date.getDate()+"/"+date.getMonth()+"/"+
+                        +"</h4><h4>Date:  "+date.getDate()+"/"+(date.getMonth()+1)+"/"+
                         date.getFullYear()+"</h4>"
                       );
                 }
                 $("#result").append(
                     "<h4>Type: "+value.type+"</h4>"+"<button type='button' value= "+value.id+
-                    " onclick='eventinfo()'>More Information</button> <hr>"
+                    " onclick='eventdetail(this)'>More Information</button> <hr>"
                   );
                 /* var taxs = "";
                 if(value.taxonomies != null){
@@ -221,22 +227,7 @@ function eventinfo(param1) {
         return false;
     }
 
-/* $('form.ajax').on('submit', function() {
-    var that = $(this), 
-        url = that.attr('action'),
-        type = that.attr('method'),
-        data = that.serialize();
-
-        console.log(data);
-
-    $.ajax({
-        url:url,
-        type:type,
-        data:data,
-        success: function(response) {
-            console.log(response);
-        }
-    });
-    return false;
-
-}); */
+function eventdetail(eventid){
+    var queryString = "?id=" + eventid.value;
+    window.location.href = "../eventPage.html" + queryString;
+}

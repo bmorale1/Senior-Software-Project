@@ -27,7 +27,7 @@ nav{
  	@include transition-duration(0.5s);
 }
 p{
-	text-align: center;
+	text-align: left;
 	font-size: 1.5em;
 	display: block;
 

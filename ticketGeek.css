@@ -27,7 +27,7 @@ nav{
  	@include transition-duration(0.5s);
 }
 p{
-	text-align: center;
+	
 	font-size: 1.5em;
 	display: block;
 
@@ -123,4 +123,24 @@ footer{
 
 #user_email, #password, #first_name, #last_name, #city, #state, #postal_code {
     width: 25%;
+}
+
+#eventsMenu {
+    width: 200px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+#eventsMenu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+#map {
+	height: 400px;
+	width: 400px;
+	background-color: #97e797;
 }
