@@ -12,7 +12,9 @@ $token = $_REQUEST['token'];
 if(!$user->validateToken($token)){
 
     session_destroy();
-    exit();
+    $data = array();
+    $data['status'] = 'fail';
+    echo json_encode($data);
 
 }else{
 
