@@ -36,6 +36,12 @@ $('document').ready(function() {
                 );
         }
 
+        console.log(value.performers["0"].image)
+
+        $(".right.split").append(
+            "<div id='eventImg'> <img src='" + value.performers["0"].image + "'></div>"
+        );
+
         initMap(value.venue.location.lat, value.venue.location.lon);
 
         
