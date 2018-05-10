@@ -13,7 +13,7 @@
     <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
     <script src="/js/fontawesome.js"></script>
     <script src="/js/fa-solid.js"></script>
-    <title>TicketGeek Registration</title>
+    <title>TicketGeek</title>
     <meta charset="utf-8">
     <script src="js/register-request.js"></script>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -36,15 +36,14 @@
                 <input type="text" placeholder="Search Here" name="seach">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div> -->
-
+            <a href="client_register.html">Sign-Up</a>
             <a href="client_login.html">Login</a>
-
-            <a class="fa fa-user" href="user.html"></a>
             <a href="logout.html">Logout</a>
+            <a class="fa fa-user" href="user.html"></a>
         </nav>
     </div>
-    <main>
-        <div>
+    <main id ="main">
+        <div clall ="centerLayout">
             <div class="signin-form">
                 <div class="container">
 
@@ -54,35 +53,43 @@
                         <div id="response">
                             <!--response will be shown here-->
                         </div>
+                        <br>
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Email address" name="email" id="user_email" />
                             <span id="check-e"></span>
                         </div>
-
+                         <br>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password" name="password" id="password" />
                         </div>
+                         <br>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="FirstName" name="first_name" id="first_name" />
                         </div>
+                         <br>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="LastName" name="last_name" id="last_name" />
                         </div>
+                         <br>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="City" name="city" id="city" />
                         </div>
+                         <br>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="State" name="state" id="state" />
                         </div>
+                         <br>
                         <div class="form-group">
                             <input type="text" pattern="[0-9]{5}" class="form-control" placeholder="PostalCode" name="postal_code" id="postal_code" />
                         </div>
+                         <br>
                         <hr />
                         <div class="form-group">
-                            <button type="submit" class="btn btn-default" name="btn-register" id="btn-register">
+                            <button type="submit" class="awesome" name="btn-register" id="btn-register">
                             <span class="glyphicon glyphicon-log-in"></span> &nbsp; Register
                         </button>
                         </div>
+                        <br>
                     </form>
                 </div>
             </div>

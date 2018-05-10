@@ -27,35 +27,35 @@
             <a href="TicketGeekhub.html">Home</a>
             <!-- <a href="eventPage.html">Events</a> -->
             <!--<a href="Cart.html">CheckOut</a>-->
-
             <!-- <div class="SearchBox">
                 <input type="text" placeholder="Search Here" name="seach">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div> -->
-
+            <a href="client_register.html">Sign-Up</a>
             <a href="client_login.html">Login</a>
-
-            <a class="fa fa-user" href="user.html"></a>
             <a href="logout.html">Logout</a>
+            <a class="fa fa-user" href="user.html"></a>
         </nav>
     </div>
     <main id="main">
 
-        <div>
+        <div class="centerLayout">
             <h2> About Us</h2>
+            <br>
             <p>We are a start-up company created by four college students with a passion for computers (and meeting project deadlines). Two of us work on the website, while the other two work on the back end to get you your events in current time!</p>
             <br />
             <br />
-            <p style="padding-bottom: 5%;"><a href="client_register.html">Sign up to TicketGeek!</a></p>
+            <p style="padding-bottom: 5%;"><a href="client_register.html">Be sure to sign up to TicketGeek!</a></p>
 
         </div>
 
+
         <form action="/services/events.php" method="GET" id="userForm" class="ajax">
-            <fieldset>
-                <legend>Look for your favorite event!</legend>
-                <input type="text" id="q" name="q" placeholder="enter keywords here"><br>
-                <input type="submit" value="Submit">
-            </fieldset>
+            <fieldset id="">
+                <p>Look for your favorite event!</p><br>
+                <input type="text" id="q" name="q" placeholder="Search"><br>
+                   	<input class='awesome' type="submit" value="Submit">
+                </fieldset>
         </form>
 
         <br>
@@ -74,7 +74,10 @@
 		</fieldset>
 	</form> -->
 
-        <div id='result'></div>
+        <div id='result'>
+        <h3 class ='centerLayout'></h3>
+        <h4 class ='centerLayout'></h4>
+        </div>
     </main>
     <footer>
         Copyright &copy; 2018 TixGeek<br>

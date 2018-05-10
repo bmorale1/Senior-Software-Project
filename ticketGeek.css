@@ -40,7 +40,25 @@ main{
   	@include transition-property(font-size);
  	@include transition-duration(0.5s);
  	padding-top: 10px;
+ 	font-size: 20px;
 
+}
+button{
+background: #222 url(/images/alert-overlay.png) repeat-x;
+display: inline-block;
+padding: 5px 10px 6px;
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+line-height: 1;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow: 0 1px 3px #999;
+-webkit-box-shadow: 0 1px 3px #999;
+text-shadow: 0 -1px 1px #222;
+border-bottom: 1px solid #222;
+position: relative;
+cursor: pointer;
 }
 footer{
 	font-size: .60em;
@@ -50,6 +68,7 @@ footer{
 	border-top: 2px solid #221811; 
 }
 * {box-sizing: border-box;}
+
 #navbar {
   overflow: hidden;
   background-color: #333;
@@ -119,10 +138,43 @@ footer{
 .sticky + .content {
   padding-top: 60px;
 }
-
+.awesome{
+background: #222 url(/images/alert-overlay.png) repeat-x;
+display: inline-block;
+padding: 5px 10px 6px;
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+line-height: 1;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow: 0 1px 3px #999;
+-webkit-box-shadow: 0 1px 3px #999;
+text-shadow: 0 -1px 1px #222;
+border-bottom: 1px solid #222;
+position: relative;
+cursor: pointer;
+}
 
 #user_email, #password, #first_name, #last_name, #city, #state, #postal_code {
     width: 25%;
+}
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 70%;
+    height: 20%
+}
+.centerLayout{
+	margin:auto;
+	width: 50%;
+	padding: 5px;
+	text-align: center;
 }
 
 #eventsMenu {
@@ -143,4 +195,37 @@ footer{
 	height: 400px;
 	width: 400px;
 	background-color: #97e797;
+}
+#result p{
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.8em;
+  	font-family: 'Bangers', cursive;
+  	@include skew(0, -6.7deg, false);
+  	@include transition-property(font-size);
+ 	@include transition-duration(0.5s);
+	margin:auto;
+	width: 50%;
+	padding: 5px;
+	text-align: center;
+}
+#result h3, h4{
+	font-size: 1.25em;
+	margin:auto;
+	width: 50%;
+	padding: 5px;
+	text-align: center;
+
+}
+#result button{
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%
+}
+
+#userDetails{
+	border: box;
+}
+#info{
+	text-decoration-line: underline;
 }
